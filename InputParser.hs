@@ -18,3 +18,11 @@ trim s = trimRight (trimLeft s)
 
     trimRight :: String -> String
     trimRight = reverse . trimLeft . reverse
+
+
+-- converte string para int de forma segura
+readIntSafe :: String -> Maybe Int
+readIntSafe w =
+  case reads w of
+    [(x, "")] -> Just x
+    _         -> Nothing
