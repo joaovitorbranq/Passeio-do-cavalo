@@ -9,6 +9,8 @@ https://pt.wikipedia.org/wiki/Problema_do_cavalo
 _heurística utilizada:
 http://warnsdorff.com/
 
+https://vigusmao.github.io/manuscripts/knightstour-SBPO.pdf
+
 
 
 _para compilar e rodar algum dos programas:
