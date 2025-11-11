@@ -1,5 +1,4 @@
 
-
 -- função que checa se um caractere é espaço em branco
 import Data.Char (isSpace)
 
@@ -8,16 +7,16 @@ type Pos = (Int, Int)
 
 -- remove espaços à esquerda e à direita (evitando composição/point-free)
 trim :: String -> String
-trim s = trimRight (trimLeft s)
+trim s = trimDireita (trimEsquerda s)
   where
-    trimLeft :: String -> String
-    trimLeft [] = []
-    trimLeft (cabeca:cauda)
-      | isSpace cabeca = trimLeft cauda
+    trimEsquerda :: String -> String
+    trimEsquerda [] = []
+    trimEsquerda (cabeca:cauda)
+      | isSpace cabeca = trimEsquerda cauda
       | otherwise = cabeca:cauda
 
-    trimRight :: String -> String
-    trimRight = reverse . trimLeft . reverse
+    trimDireita :: String -> String
+    trimDireita = reverse . trimEsquerda . reverse
 
 
 -- converte string para int de forma segura
@@ -54,3 +53,25 @@ parseLine s =
                        Just sc ->
                          Just (rows, cols, (sr - 1, sc - 1)) -- converte para 0-based para Pos
        _ -> Nothing
+
+
+
+readLinesFromFile :: FilePath -> IO [(Int, Int, Pos)]
+readLinesFromFile file = do
+  content <- readFile file
+  let ls = map trim (lines content) -- aplica trim e quebra o arquivo em linhas
+  let nonEmpty = discardEmptyLines ls
+  return (collectCases nonEmpty [])
+  where
+    discardEmptyLines :: [String] -> [String]
+    discardEmptyLines [] = []
+    discardEmptyLines (cabeca:cauda)
+      | cabeca == ""   = discardEmptyLines cauda --
+      | otherwise = cabeca : discardEmptyLines cauda
+
+    collectCases :: [String] -> [(Int,Int,Pos)] -> [(Int,Int,Pos)]
+    collectCases [] acc = reverse acc -- caso base. devolve invertido pois adicionamos pelo começo
+    collectCases (cabeca:cauda) acc =
+      case parseLine cabeca of
+        Just c  -> collectCases cauda (c:acc) -- adiciona no inicio da lista acumuladora
+        Nothing -> collectCases cauda acc -- faz nada e continua com or resto da lista
