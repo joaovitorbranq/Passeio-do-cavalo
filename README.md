@@ -24,3 +24,9 @@ ghc --make Main.hs -O2 -o passeio_cavalo && ./passeio_cavalo input.txt
 ```bash
 make && make run
 ```
+
+### Referências
+
+[Problema do passeio do cavalo](https://en.wikipedia.org/wiki/Knight%27s_tour)
+
+[heurística de warnsdorff](https://en.wikipedia.org/wiki/Knight%27s_tour)
