@@ -1,6 +1,7 @@
 module LogicaDoCavalo
   ( gerarMovimentos
   , movimentoValido
+  , dentroDosLimites
   ) where
 
 import qualified Data.Set as S
