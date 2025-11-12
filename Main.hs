@@ -5,7 +5,7 @@ import System.Environment (withArgs) -- para rodar withArgs ["input.txt"] main n
 import System.Exit (die)
 import InputParser (readLinesFromFile, printResult)
 import LogicaDoCavalo (gerarMovimentos, movimentoValido)
-import KnightSolver (knightTourOpenWith)
+import PasseioCavalo (passeioCavalo)
 
 main :: IO ()
 main = do
@@ -20,5 +20,5 @@ main = do
     run (rows, cols, start) =
       let total   = rows * cols
           next    = gerarMovimentos rows cols
-          result  = knightTourOpenWith total next movimentoValido start
+          result  = passeioCavalo total next movimentoValido start
       in printResult result
