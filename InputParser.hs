@@ -1,3 +1,7 @@
+module InputParser
+  ( readLinesFromFile
+  , printResult
+  ) where
 
 -- função que checa se um caractere é espaço em branco
 import Data.Char (isSpace)

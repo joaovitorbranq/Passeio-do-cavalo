@@ -1,3 +1,10 @@
+module LogicaDoCavalo
+  ( gerarMovimentos
+  , movimentoValido
+  ) where
+
+import qualified Data.Set as S
+
 deltas =
   [ ( 2,  1), ( 2, -1), (-2,  1), (-2, -1)
   , ( 1,  2), ( 1, -2), (-1,  2), (-1, -2)
