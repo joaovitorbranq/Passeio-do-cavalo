@@ -1,19 +1,25 @@
-_instalação do ambiente haskell:
-https://www.haskell.org/ghcup/install/
+# Passeio do Cavalo
 
+Implementação do **Problema do Passeio do Cavalo** (_Knight’s Tour_) em **Haskell**, utilizando a **heurística de Warnsdorff**.
 
-_referências:
-https://pt.wikipedia.org/wiki/Problema_do_cavalo
+---
 
+## Instalação do ambiente Haskell
 
-_heurística utilizada:
-http://warnsdorff.com/
+Para compilar e executar o projeto, é necessário ter o **Haskell** e o **GHC** instalados.  
+A forma mais simples é utilizando o **GHCup**.
 
-https://vigusmao.github.io/manuscripts/knightstour-SBPO.pdf
+🔗 [Guia oficial de instalação do GHCup](https://www.haskell.org/ghcup/install/)
 
+---
 
+## Compilação e execução
 
-_para compilar e rodar algum dos programas:
+### Usando GHCup diretamente
+```bash
+ghc --make Main.hs -O2 -o passeio_cavalo && ./passeio_cavalo input.txt
+```
 
-    ghc --make Main.hs -O2 -o passeio_cavalo (compila)
-    ./passeio_cavalo entrada_valida.txt (roda)
+```bash
+make && make run
+```

@@ -10,8 +10,8 @@ GHCFLAGS = --make -O2
 # Arquivos fonte (ajuste conforme seus arquivos .hs)
 SRC = Main.hs \
       InputParser.hs \
-      KnightLogic.hs \
-      KnightSolver.hs
+      PasseioCavalo.hs \
+      LogicaDoCavalo.hs
 
 # Regra padrão (gera o executável)
 all: $(EXEC)
