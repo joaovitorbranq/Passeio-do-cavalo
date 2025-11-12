@@ -75,3 +75,26 @@ readLinesFromFile file = do
       case parseLine cabeca of
         Just c  -> collectCases cauda (c:acc) -- adiciona no inicio da lista acumuladora
         Nothing -> collectCases cauda acc -- faz nada e continua com or resto da lista
+
+
+
+-- imprimir em tela:
+
+printResult :: Maybe [Pos] -> IO ()
+printResult Nothing     = putStrLn "NAO"
+printResult (Just path) = do
+  putStrLn "SIM"
+  putStrLn (formatKnightPath path)
+
+
+
+formatKnightPath :: [Pos] -> String
+formatKnightPath xs = go xs True ""
+  where
+    go :: [Pos] -> Bool -> String -> String
+    go [] _ acc = acc
+    go ((i,j):rest) first acc =
+      let pairStr = "(" ++ show (i+1) ++ "," ++ show (j+1) ++ ")"
+          sep = if first then "" else " -> " -- primeiro nao mostra
+          acc2 = acc ++ sep ++ pairStr
+      in go rest False acc2
