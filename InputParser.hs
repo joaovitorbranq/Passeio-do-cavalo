@@ -9,7 +9,7 @@ import Data.Char (isSpace)
 
 type Pos = (Int, Int)
 
--- remove espaços à esquerda e à direita (evitando composição/point-free)
+-- remove espaços à esquerda e à direita
 trim :: String -> String
 trim s = trimDireita (trimEsquerda s)
   where
