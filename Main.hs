@@ -15,7 +15,7 @@ main = do
             _   -> die ""
 
   cases <- readLinesFromFile file
-  mapM_ run cases
+  mapM_ run cases -- map para função de IO.
   where
     run (rows, cols, start) =
       let total   = rows * cols
