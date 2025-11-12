@@ -20,6 +20,7 @@ A forma mais simples é utilizando o **GHCup**.
 ghc --make Main.hs -O2 -o passeio_cavalo && ./passeio_cavalo input.txt
 ```
 
+### Usando Makefile
 ```bash
 make && make run
 ```
