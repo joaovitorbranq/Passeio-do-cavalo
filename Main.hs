@@ -12,7 +12,7 @@ main = do
   args <- getArgs
   file <- case args of
             [f] -> pure f
-            _   -> die "Uso: ./passeio_cavalo <arquivo.txt>"
+            _   -> die ""
 
   cases <- readLinesFromFile file
   mapM_ run cases
